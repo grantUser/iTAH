@@ -22,8 +22,7 @@ while True:
     index = np.argmax(prediction)
     class_name = class_names[index]
 
-    is_head_detected = class_name[2:].strip().lower() == "head"
-    window_title = "Head Detected" if is_head_detected else "No Head Detected"
+    window_title = "Head Detected" if not int(class_name[0]) else "No Head Detected"
     
     cv2.imshow("Webcam Image", image_display)
     cv2.setWindowTitle("Webcam Image", window_title)
